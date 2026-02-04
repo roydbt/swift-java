@@ -190,7 +190,10 @@ extension SwiftJava.ResolveCommand {
     let buildGradleText =
       """
       plugins { id 'java-library' }
-      repositories { mavenCentral() }
+      repositories {
+          mavenLocal()
+          mavenCentral()
+      }
 
       dependencies {
         \(dependencies.map({ dep in "implementation(\"\(dep.descriptionGradleStyle)\")" }).joined(separator: ",\n"))
